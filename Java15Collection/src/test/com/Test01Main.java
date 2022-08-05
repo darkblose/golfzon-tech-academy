@@ -1,6 +1,7 @@
 package test.com;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Test01Main {
@@ -19,7 +20,8 @@ public class Test01Main {
         list.add(null); //null
         list.add(4000); //Integer
         list.add(5000); //Integer
-
+        list.add(0, 9999);
+        Object[] objs = list.toArray();
 //        System.out.println(list.get(0));
 //        System.out.println(list.get(1));
 //        System.out.println(list.get(2));
@@ -29,7 +31,7 @@ public class Test01Main {
         }
 
         list.remove(0);
-        list.set(1,999);
+        list.set(1, 999);
 
         System.out.println("========================");
         for (Integer x : list) {
@@ -40,8 +42,8 @@ public class Test01Main {
         List<MemberVO> vos = new ArrayList<MemberVO>();
         vos.add(new MemberVO());
         vos.add(new MemberVO());
-        vos.add(new MemberVO(11,"admin", "h11234", "KIM", "010-1111-2222"));
-        vos.add(new MemberVO(11,"admin", "h11234", "KIM", "010-1111-2222"));
+        vos.add(new MemberVO(11, "admin", "h11234", "KIM", "010-1111-2222"));
+        vos.add(new MemberVO(11, "admin", "h11234", "KIM", "010-1111-2222"));
 
 //        MemberVO vo = new MemberVO();
 //        vos.add(vo);
@@ -54,10 +56,11 @@ public class Test01Main {
         vo.setPw("h1234");
         vo.setTel("02");
         vos.add(vo);
+        vos.add(vo);
+        vos.add(vo);
 
         System.out.println(vos.size());
-        for (int i = 0; i< vos.size(); i++) {
-            MemberVO x = vos.get(i);
+        for (MemberVO x : vos) {
             System.out.print(x.getNum() + " ");
             System.out.print(x.getId() + " ");
             System.out.print(x.getPw() + " ");
@@ -65,6 +68,14 @@ public class Test01Main {
             System.out.println(x.getTel());
         }
 
+        System.out.println("======================="); // 예전 버전의 for와 while 원리, 566페이지
+//        for (Iterator iterator = vos.iterator(); iterator.hasNext(); ) {
+//            MemberVO memberVO = (MemberVO) iterator.next();
+//        }
+//
+//        while (vos.iterator().hasNext()) {
+//            MemberVO memberVO = (MemberVO) vos.iterator().next();
+//        }
 
     }
 }
