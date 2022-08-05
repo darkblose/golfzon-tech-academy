@@ -43,12 +43,28 @@ public class Test01Main {
         vos.add(new MemberVO(11,"admin", "h11234", "KIM", "010-1111-2222"));
         vos.add(new MemberVO(11,"admin", "h11234", "KIM", "010-1111-2222"));
 
+//        MemberVO vo = new MemberVO();
+//        vos.add(vo);
+//        vos.add(vo);
+//        vos.add(vo);
+
         MemberVO vo = new MemberVO();
-        vos.add(vo);
-        vos.add(vo);
+        vo.setNum(1);
+        vo.setId("tester");
+        vo.setPw("h1234");
+        vo.setTel("02");
         vos.add(vo);
 
         System.out.println(vos.size());
+        for (int i = 0; i< vos.size(); i++) {
+            MemberVO x = vos.get(i);
+            System.out.print(x.getNum() + " ");
+            System.out.print(x.getId() + " ");
+            System.out.print(x.getPw() + " ");
+            System.out.print(x.getName() + " ");
+            System.out.println(x.getTel());
+        }
+
 
     }
 }
