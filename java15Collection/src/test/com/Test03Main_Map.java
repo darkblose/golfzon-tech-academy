@@ -1,8 +1,7 @@
 package test.com;
 
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Map;
+import java.lang.reflect.Member;
+import java.util.*;
 
 public class Test03Main_Map {
     public static void main(String[] args) {
@@ -28,7 +27,42 @@ public class Test03Main_Map {
         System.out.println(m2.get("pi"));
         System.out.println(m2.get("avg"));
         System.out.println(m2.get("ball_speed"));
+//        m2.clear();
+        m2.remove("pi");
+        m2.put("ball_speed", 68.8);
 
+        System.out.println("=======================");
+        System.out.println(m2.keySet());
+        for (String key : m2.keySet()) {
+            System.out.println(key + " : " + m2.get(key));
+        }
+        System.out.println(m2.values());
+        for (Double value : m2.values()) {
+            System.out.println(value);
+        }
+
+        System.out.println("=======================");
+        Map<String, MemberVO> m3 = new HashMap<String, MemberVO>();
+        m3.put("vo1", new MemberVO());
+        m3.put("vo2", new MemberVO(22, "ad1004", "ad1212", "adkim", "080"));
+        MemberVO vo = new MemberVO();
+        vo.setNum(33);
+        vo.setId("ad33");
+        vo.setPw("hi3333");
+        vo.setName("lee33");
+        vo.setTel("033");
+        m3.put("vo3", vo);
+
+        System.out.println("=======================");
+        Map<String, List<MemberVO>> m4 = new HashMap</*String, List<MemberVO>*/>();
+        List<MemberVO> vos = new ArrayList<MemberVO>();
+        vos.add(new MemberVO());
+        vos.add(new MemberVO());
+
+        m4.put("vos", vos);
+        for (MemberVO x : m4.get("vos")) {
+            System.out.println(x);
+        }
 
         System.out.println("=======================");
         System.out.println("End Main");

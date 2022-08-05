@@ -11,6 +11,8 @@ public class Test01Main {
 
 //        중복데이터 허용, 순서 있음, null 허용
 //        수정(set), 삭제(remove), 추가(add), 검색(get) 가능
+//        참조타입이라면 뭐든 삽입 가능
+
         List<Integer> list = new ArrayList<>();
         list.add(1000); //Integer
         list.add(1000); //Integer
