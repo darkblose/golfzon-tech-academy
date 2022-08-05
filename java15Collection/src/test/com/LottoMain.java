@@ -32,7 +32,5 @@ public class LottoMain {
         for (int i = 0; i < Lotto_NumSets.size(); i++) {
             System.out.println(i + 1 + " : " + Lotto_NumSets.get(i));
         }
-
-
     }
 }
