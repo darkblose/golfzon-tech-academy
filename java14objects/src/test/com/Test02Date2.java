@@ -16,7 +16,7 @@ public class Test02Date2 {
         System.out.println(System.currentTimeMillis());
 
 //        날짜타입을 이쁘게 변형(포맷)해주는 객체
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss:SSS");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
         String str_date = sdf.format(ud);
         System.out.println(str_date);
 
