@@ -23,6 +23,12 @@ public class Test03Main_Map {
         m2.put("pi", 3.14);
         m2.put("avg", 99.99);
         m2.put("ball_speed", 74.5);
+        System.out.println(m2.size());
+        System.out.println(m2.get(0));
+        System.out.println(m2.get("pi"));
+        System.out.println(m2.get("avg"));
+        System.out.println(m2.get("ball_speed"));
+
 
         System.out.println("=======================");
         System.out.println("End Main");
