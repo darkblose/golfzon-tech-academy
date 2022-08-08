@@ -3,11 +3,11 @@ package test.com;
 import java.io.*;
 import java.net.URL;
 
-public class Test01Main {
+public class Test01BufferedReader {
     public static void main(String[] args) {
         System.out.println("Hello io");
 
-        Class<?> tm_clazz = Test01Main.class;
+        Class<?> tm_clazz = Test01BufferedReader.class;
         URL url = tm_clazz.getResource("language.txt");
         String path = url.getPath();
         System.out.println(path);

@@ -2,7 +2,7 @@ package test.com;
 
 import java.io.*;
 
-public class Test02Main {
+public class Test02PrintWriter {
     public static void main(String[] args) {
         System.out.println("Hello Output");
 
@@ -13,6 +13,12 @@ public class Test02Main {
         try {
             fos = new FileOutputStream(file);
             ps = new PrintStream(fos);
+
+            for (int i = 0; i < 5; i++) {
+                ps.println("Hello Java..." + i);
+            }
+            ps.flush();
+            System.out.println("ps success...");
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } finally {
