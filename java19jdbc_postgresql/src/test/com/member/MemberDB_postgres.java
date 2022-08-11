@@ -6,13 +6,9 @@ public interface MemberDB_postgres {
     String USER = "postgres";
     String PASSWORD = "admin1234";
 
-    String SQL_SELECT_ALL =
-            "select * from member order by num desc";
+    String SQL_SELECT_ALL = "select * from member order by num desc";
 
-    String SQL_INSERT =
-            "insert into "
-                    + "member(num,id,pw,name,tel) "
-                    + "values(nextval('seq_member'),?,?,?,?)";
+    String SQL_INSERT = "insert into " + "member(num,id,pw,name,tel) " + "values(nextval('seq_member'),?,?,?,?)";
     String SQL_UPDATE = "update member set id=?,pw=?,name=?,tel=? where num=?";
     String SQL_DELETE = "delete from member where num=?";
     String SQL_SELECT_ONE = "select * from member where num=?";
