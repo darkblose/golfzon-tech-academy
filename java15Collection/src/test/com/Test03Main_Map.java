@@ -1,70 +1,76 @@
 package test.com;
 
-import java.lang.reflect.Member;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Map;
 
-public class Test03Main_Map {
-    public static void main(String[] args) {
-        System.out.println("Hello Map");
-//        key,valueë¡œ ë°ì´í„°ë¥¼ ì—¬ëŸ¬ ê°œ ì €ì¥
-//        ë§µí•‘, ë°”ì¸ë”©: put(K,V) |ëª¨ë°”ì¼: put___(K,V) |ì›¹: setAttr___(K,V) í˜•ì‹ìœ¼ë¡œ ë§ì´ ì“°ì„
-        Map<Integer, Integer> m = new HashMap<Integer, Integer>();
-        m.put(0, 111); // 0ë²ˆí‚¤ë¥¼ 111ë¡œ ì„¸íŒ…í•˜ë¼
-        m.put(0, 1111); // 0ë²ˆí‚¤ë¥¼ 1111ë¡œ ë°”ê¿”ë¼ >> KeyëŠ” ì¤‘ë³µë¶ˆê°€( = Set)
-        m.put(1, 11111);
-        m.put(2, 111111);
-        System.out.println(m.size());
+import test.com.member.MemberVO;
 
-        System.out.println(m.get(0));
-        System.out.println("=======================");
+public class Test03main_Map {
 
-        Map<String, Double> m2 = new Hashtable<String, Double>();
-        m2.put("pi", 3.14);
-        m2.put("avg", 99.99);
-        m2.put("ball_speed", 74.5);
-        System.out.println(m2.size());
-        System.out.println(m2.get(0));
-        System.out.println(m2.get("pi"));
-        System.out.println(m2.get("avg"));
-        System.out.println(m2.get("ball_speed"));
-//        m2.clear();
-        m2.remove("pi");
-        m2.put("ball_speed", 68.8);
+	public static void main(String[] args) {
+		System.out.println("Hello Map");
+		//key,value ·Î µ¥ÀÌÅÍ¸¦ ¿©·¯°³ÀúÀå.
+		//¸ÊÇÎ,¹ÙÀÎµù: put(K,V),putXXX(K,V),setAttrXXX(K,V)
+		Map<Integer, Integer> m = new HashMap<Integer, Integer>();
+		m.put(0, 111);
+		m.put(0, 1111);//key´Â Áßº¹Çã¿ë¾ÈÇÔ(Set)
+		m.put(1, 11111);
+		m.put(2, 111111);
+		System.out.println(m.size());
+		
+		System.out.println(m.get(0));
+		System.out.println(m.get(1));
+		System.out.println(m.get(2));
+		
+		System.out.println("==============");
+		Map<String, Double> m2 = new Hashtable<String, Double>();
+		m2.put("pi", 3.14);
+		m2.put("avg", 99.99);
+		m2.put("ball_speed", 74.5);
+		System.out.println(m2.size());
+		System.out.println(m2.get("pi"));
+		System.out.println(m2.get("avg"));
+		System.out.println(m2.get("ball_speed"));
+		//m2.clear();
+		m2.remove("pi");
+		m2.put("ball_speed", 68.8);
+		System.out.println(m2.keySet());
+		for (String key : m2.keySet()) {
+			System.out.println(key+":"+m2.get(key));
+		}
+		System.out.println(m2.values());
+		for (Double x : m2.values()) {
+			System.out.println(x);
+		}
+		
+		System.out.println("===============");
+		Map<String, MemberVO> m3 = 
+				new HashMap<String, MemberVO>();
+		m3.put("vo1", new MemberVO());
+		m3.put("vo2", new MemberVO(22,"ad1004","ad1212","adkim","080"));
+		MemberVO vo = new MemberVO();
+		vo.setNum(33);
+		vo.setId("ad33");
+		vo.setPw("hi3333");
+		vo.setName("lee33");
+		vo.setTel("033");
+		m3.put("vo3", vo);
+		
+		System.out.println("===============");
+		Map<String, List<MemberVO>> m4 = new HashMap<String, List<MemberVO>>();
+		List<MemberVO> vos = new ArrayList<MemberVO>();
+		vos.add(new MemberVO());
+		vos.add(new MemberVO());
+		
+		m4.put("vos", vos);
+		for (MemberVO x : m4.get("vos")) {
+			System.out.println(x);
+		}
+		
+		
+	}//end main
 
-        System.out.println("=======================");
-        System.out.println(m2.keySet());
-        for (String key : m2.keySet()) {
-            System.out.println(key + " : " + m2.get(key));
-        }
-        System.out.println(m2.values());
-        for (Double value : m2.values()) {
-            System.out.println(value);
-        }
-
-        System.out.println("=======================");
-        Map<String, MemberVO> m3 = new HashMap<String, MemberVO>();
-        m3.put("vo1", new MemberVO());
-        m3.put("vo2", new MemberVO(22, "ad1004", "ad1212", "adkim", "080"));
-        MemberVO vo = new MemberVO();
-        vo.setNum(33);
-        vo.setId("ad33");
-        vo.setPw("hi3333");
-        vo.setName("lee33");
-        vo.setTel("033");
-        m3.put("vo3", vo);
-
-        System.out.println("=======================");
-        Map<String, List<MemberVO>> m4 = new HashMap</*String, List<MemberVO>*/>();
-        List<MemberVO> vos = new ArrayList<MemberVO>();
-        vos.add(new MemberVO());
-        vos.add(new MemberVO());
-
-        m4.put("vos", vos);
-        for (MemberVO x : m4.get("vos")) {
-            System.out.println(x);
-        }
-
-        System.out.println("=======================");
-        System.out.println("End Main");
-    }
-}
+}//end class

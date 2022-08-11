@@ -2,7 +2,7 @@ package test.com;
 
 import java.io.Serializable;
 
-public class TestVO implements Serializable {
+public class MemberVO implements Serializable {
 
     private int num;
     private String name;

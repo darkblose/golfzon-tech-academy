@@ -21,9 +21,9 @@ public class Test03ObjectOutputStream {
             fos = new FileOutputStream(file);
             oos = new ObjectOutputStream(fos);
 
-            List<TestVO> vos = new ArrayList<TestVO>();
+            List<MemberVO> vos = new ArrayList<MemberVO>();
             for (int i = 0; i < 10; i++) {
-                TestVO vo = new TestVO();
+                MemberVO vo = new MemberVO();
                 vo.setNum(1+i);
                 vo.setName("kim"+i);
                 vo.setAge(33+i);

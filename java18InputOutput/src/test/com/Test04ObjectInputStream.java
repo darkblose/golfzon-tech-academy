@@ -15,7 +15,7 @@ public class Test04ObjectInputStream {
             fis = new FileInputStream(file);
             ois = new ObjectInputStream(fis);
 
-            List<TestVO> vos = (List<TestVO>) ois.readObject();
+            List<MemberVO> vos = (List<MemberVO>) ois.readObject();
             for (int i = 0; i < vos.size(); i++) {
                 System.out.println(vos.get(i));
             }

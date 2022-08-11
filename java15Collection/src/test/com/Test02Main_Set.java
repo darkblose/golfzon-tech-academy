@@ -4,94 +4,85 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class Test02Main_Set {
-    public static void main(String[] args) {
-        System.out.println("Hello Set...");
+import test.com.member.MemberVO;
 
-        //ë°ì´í„°ì˜ ì¤‘ë³µì„ í—ˆìš©í•˜ì§€ ì•ŠìŒ
-        //ë°ì´í„°ê°€ ì¶”ê°€ë˜ëŠ” ìˆœì„œê°€ ì—†ë‹¤. (= ì¸ë±ìŠ¤ê°€ ì—†ë‹¤.)
-        Set<String> s = new HashSet<String>();
-        s.add("First");
-        s.add("First");
-        s.add("Second");
-        s.add("Second");
-        s.add(null);
-        s.add(null);
-        System.out.println(s.size());
-        for (String x : s) { // ì¶”ê°€í•œ ìˆœì„œì™€ ìƒê´€ ì—†ì´ ì¶œë ¥
-            System.out.println(x);
-        }
-        System.out.println("=======================");
-        s.remove("First");
-        for (String x : s) { // ì¶”ê°€í•œ ìˆœì„œì™€ ìƒê´€ ì—†ì´ ì¶œë ¥
-            System.out.println(x);
-        }
+public class Test02main_Set {
 
-        System.out.println("=======================");
-        s.clear();
-        for (String x : s) {
-            System.out.println(x);
-        }
+	public static void main(String[] args) {
+		System.out.println("Hello Set...");
+		
+		//µ¥ÀÌÅÍÀÇ Áßº¹À» Çã¿ëÇÏÁö¾ÊÀ½.
+		//µ¥ÀÌÅÍ°¡ Ãß°¡µÇ´Â ¼ø¼­°¡ ¾ø´Ù.ÀÎµ¦½º°¡ ¾ø´Ù.
+		Set<String> s = new HashSet<String>();
+		s.add("kim");
+		s.add("kim");
+		s.add("kim2");
+		s.add("kim2");
+		s.add(null);
+		s.add(null);
+		System.out.println(s.size());
+		
+		for (String x : s) {
+			System.out.println(x);
+		}
+		System.out.println("=====");
+		s.remove("kim2");
+		s.clear();
+		for (String x : s) {
+			System.out.println(x);
+		}
+		System.out.println("=====");
+		s.add("lee1");
+		s.add("lee2");
+		s.add("lee2");
+		s.add("lee3");
+		s.add("lee4");
+		
+		System.out.println("=====");
+		for (String x : s) {
+			System.out.println(x);
+		}
+		System.out.println("=====");
+		System.out.println(s.contains("lee2"));
+		System.out.println(s.toArray());
+		Object[] strs =  s.toArray();
+		System.out.println(strs[0]);
+		System.out.println("=====");
+		for (Object x : strs) {
+			System.out.println(x);
+		}
+		System.out.println("=====");
+		
+		
+//		for (Iterator<String> iterator = s.iterator(); iterator.hasNext();) {
+//			String x = (String) iterator.next();
+//		}
+//		while (s.iterator().hasNext()) {
+//			String x = (String) s.iterator().next();
+//		}
+		
+		System.out.println("=====================");
+		Set<MemberVO> vos = new HashSet<MemberVO>();
+		vos.add(new MemberVO());
+		vos.add(new MemberVO());
+		vos.add(new MemberVO(11,"admin","hi1234","kim","010"));
+		vos.add(new MemberVO(11,"admin","hi1234","kim","010"));
+		
+		MemberVO vo = new MemberVO();
+		vo.setNum(1);
+		vo.setId("tester");
+		vo.setPw("hi2424");
+		vo.setName("lee");
+		vo.setTel("02");
+		vos.add(vo);
+		vos.add(vo);
+		vos.add(vo);
+		
+		System.out.println(vos.size());
+		for (MemberVO x : vos) {
+			System.out.println(x);
+		}
+		
+	}//end main
 
-        System.out.println("=======================");
-        s.add("lee1");
-        s.add("lee2");
-        s.add("lee3");
-        s.add("lee3");
-        s.add("lee4");
-        s.add("lee4");
-        for (String x : s) { // ì¶”ê°€í•œ ìˆœì„œì™€ ìƒê´€ ì—†ì´ ì¶œë ¥
-            System.out.println(x);
-        }
-
-        System.out.println("=======================");
-        System.out.println("Is there 'lee2': " + s.contains("lee2"));
-        System.out.println("Is there 'lee5': " + s.contains("lee5"));
-        System.out.println("=======================");
-        System.out.println(s.toArray());
-        Object[] strs = s.toArray();
-        System.out.println(strs[0]);
-        for (Object x : strs) {
-            System.out.println(x);
-        }
-        System.out.println("=======================");
-
-//        for (Iterator<String> iterator = s.iterator(); iterator.hasNext(); ) {
-//            String x = (String) iterator.next();
-//        }
-//
-//        while (s.iterator().hasNext()) {
-//            String x = (String) s.iterator().next();
-//        }
-
-        System.out.println("=======================");
-        Set<MemberVO> vos = new HashSet<MemberVO>();
-        vos.add(new MemberVO());
-        vos.add(new MemberVO());
-        vos.add(new MemberVO(11, "admin", "h11234", "KIM", "010-1111-2222"));
-        vos.add(new MemberVO(11, "admin", "h11234", "KIM", "010-1111-2222"));
-        vos.add(new MemberVO(11, "admin", "h11234", "KIM", "010-1111-3333"));
-
-        MemberVO vo = new MemberVO();
-        vo.setNum(1);
-        vo.setId("tester");
-        vo.setPw("h1234");
-        vo.setTel("02");
-        vos.add(vo);
-        vos.add(vo);
-        vos.add(vo);
-
-        System.out.println(vos.size());
-        for (MemberVO x : vos) {
-            System.out.println(x);
-
-        }
-        System.out.println("=======================");
-        System.out.println("end main....");
-    }
-    @Override //ë°ì´í„°í´ë˜ìŠ¤ìš© í•¨ìˆ˜ ì¬ì •ì˜
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-}
+}//end class
