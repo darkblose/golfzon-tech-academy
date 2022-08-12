@@ -28,6 +28,7 @@ public class Test01Main {
                 System.out.println("onClick()...222");
             }
         });
+
         btn.touch();
     }
 }

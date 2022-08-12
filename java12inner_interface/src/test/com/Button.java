@@ -5,6 +5,7 @@ public class Button {
 
     static interface OnClickListener {
         void onClick();
+
     }
 
     public void setOnClickListener(OnClickListener onClickListener) {
