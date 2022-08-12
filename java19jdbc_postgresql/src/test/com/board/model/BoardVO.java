@@ -1,4 +1,4 @@
-package test.com.board;
+package test.com.board.model;
 
 import java.util.Date;
 import java.util.Objects;

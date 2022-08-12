@@ -1,4 +1,4 @@
-package test.com;
+package test.com.score;
 
 import java.util.List;
 

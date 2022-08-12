@@ -5,7 +5,7 @@ public class Test05Class {
         System.out.println("Hello Class");
 
         try {
-            Class<?> clazz = Class.forName("test.com.MemberVO");
+            Class<?> clazz = Class.forName("test.com.mine.MemberVO");
             System.out.println("class Found");
             System.out.println(clazz.getName());
             System.out.println(clazz.getConstructors()[0]);

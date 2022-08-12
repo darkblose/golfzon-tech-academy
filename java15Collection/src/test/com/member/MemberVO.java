@@ -1,23 +1,23 @@
-package test.com;
+package test.com.member;
 
 import java.util.Objects;
 
 public class MemberVO {
 
-	// ë²ˆí˜¸num,ì•„ì´ë””id,ë¹„ë²ˆpw,ì´ë¦„name,í°ë²ˆtel
-	// ì†ì„± ì€ë‹‰í•´ì„œ ì„ ì–¸
+	// ¹øÈ£num,¾ÆÀÌµğid,ºñ¹øpw,ÀÌ¸§name,Æù¹øtel
+	// ¼Ó¼º Àº´ĞÇØ¼­ ¼±¾ğ
 	private int num;
 	private String id;
 	private String pw;
 	private String name;
 	private String tel;
 
-	// ë§¤ê°œë³€ìˆ˜ì—†ëŠ” ìƒì„±ì1ê°œ ë§Œë“œì‹œê³ 
+	// ¸Å°³º¯¼ö¾ø´Â »ı¼ºÀÚ1°³ ¸¸µå½Ã°í
 	public MemberVO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	// ëª¨ë“  ì†ì„±ì„ ë§¤ê°œë³€ìˆ˜ë¡œí•˜ëŠ” ìƒì„±ì 1ê°œ ì¶”ê°€
+	// ¸ğµç ¼Ó¼ºÀ» ¸Å°³º¯¼ö·ÎÇÏ´Â »ı¼ºÀÚ 1°³ Ãß°¡
 	public MemberVO(int num, String id, String pw, String name, String tel) {
 		super();
 		this.num = num;
@@ -27,7 +27,7 @@ public class MemberVO {
 		this.tel = tel;
 	}
 
-	// ê²Œí„°&ì„¸í„° êµ¬í˜„
+	// °ÔÅÍ&¼¼ÅÍ ±¸Çö
 	public int getNum() {
 		return num;
 	}
@@ -68,13 +68,13 @@ public class MemberVO {
 		this.tel = tel;
 	}
 
-	// toString ì¬ì •ì˜
+	// toString ÀçÁ¤ÀÇ
 	@Override
 	public String toString() {
 		return "MemberVO [num=" + num + ", id=" + id + ", pw=" + pw + ", name=" + name + ", tel=" + tel + "]";
 	}
 
-	// ë°ì´í„°í´ë˜ìŠ¤ìš© í•¨ìˆ˜ ì¬ì •ì˜
+	// µ¥ÀÌÅÍÅ¬·¡½º¿ë ÇÔ¼ö ÀçÁ¤ÀÇ
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, name, num, pw, tel);

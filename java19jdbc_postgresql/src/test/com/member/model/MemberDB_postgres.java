@@ -1,4 +1,4 @@
-package test.com.member;
+package test.com.member.model;
 
 public interface MemberDB_postgres {
     String DRIVER_NAME = "org.postgresql.Driver";

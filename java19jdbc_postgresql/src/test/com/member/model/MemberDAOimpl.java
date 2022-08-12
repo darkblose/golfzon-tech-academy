@@ -1,18 +1,23 @@
-package test.com.board;
+package test.com.member.model;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BoardDAOimpl implements BoardDAO {
+public class MemberDAOimpl implements MemberDAO {
+
     private Connection conn;
     private PreparedStatement pstmt;
     private ResultSet rs;
 
-    public BoardDAOimpl() {
-        System.out.println("BoardDAOimpl()..");
+    public MemberDAOimpl() {
+        System.out.println("MemberDAOimpl()..");
         try {
-            Class.forName(BoardDB_postgres.DRIVER_NAME);
+            Class.forName(MemberDB_postgres.DRIVER_NAME);
             System.out.println("Driver successed..");
 
 //			jdbcConnectionTest();
@@ -28,7 +33,7 @@ public class BoardDAOimpl implements BoardDAO {
         ResultSet rs = null;
 
         try {
-            conn = DriverManager.getConnection(BoardDB_postgres.URL, BoardDB_postgres.USER, BoardDB_postgres.PASSWORD);
+            conn = DriverManager.getConnection(MemberDB_postgres.URL, MemberDB_postgres.USER, MemberDB_postgres.PASSWORD);
             System.out.println("conn successed...");
             // �˻� : DQL
             String sql = "select version() as version";
@@ -69,21 +74,21 @@ public class BoardDAOimpl implements BoardDAO {
     }
 
     @Override
-    public int insert(BoardVO vo) {
+    public int insert(MemberVO vo) {
         System.out.println("insert()...");
         System.out.println(vo);
 
         int flag = 0;
         try {
-            conn = DriverManager.getConnection(BoardDB_postgres.URL, BoardDB_postgres.USER, BoardDB_postgres.PASSWORD);
+            conn = DriverManager.getConnection(MemberDB_postgres.URL, MemberDB_postgres.USER, MemberDB_postgres.PASSWORD);
             System.out.println("conn successed...");
             // �Է�,����,���� : DML
 
-            pstmt = conn.prepareStatement(BoardDB_postgres.SQL_INSERT);
-
-            pstmt.setString(1, vo.getTitle());
-            pstmt.setString(2, vo.getContent());
-            pstmt.setString(3, vo.getWriter());
+            pstmt = conn.prepareStatement(MemberDB_postgres.SQL_INSERT);
+            pstmt.setString(1, vo.getId());
+            pstmt.setString(2, vo.getPw());
+            pstmt.setString(3, vo.getName());
+            pstmt.setString(4, vo.getTel());
             flag = pstmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -116,23 +121,25 @@ public class BoardDAOimpl implements BoardDAO {
         return flag;
     }
 
+
     @Override
-    public int update(BoardVO vo) {
+    public int update(MemberVO vo) {
         System.out.println("update()...");
         System.out.println(vo);
 
         int flag = 0;
 
         try {
-            conn = DriverManager.getConnection(BoardDB_postgres.URL, BoardDB_postgres.USER, BoardDB_postgres.PASSWORD);
+            conn = DriverManager.getConnection(MemberDB_postgres.URL, MemberDB_postgres.USER, MemberDB_postgres.PASSWORD);
             System.out.println("conn successed...");
             // �Է�,����,���� : DML
 
-            pstmt = conn.prepareStatement(BoardDB_postgres.SQL_UPDATE);
-            pstmt.setString(1, vo.getTitle());
-            pstmt.setString(2, vo.getContent());
-            pstmt.setString(3, vo.getWriter());
-            pstmt.setInt(4, vo.getNum());
+            pstmt = conn.prepareStatement(MemberDB_postgres.SQL_UPDATE);
+            pstmt.setString(1, vo.getId());
+            pstmt.setString(2, vo.getPw());
+            pstmt.setString(3, vo.getName());
+            pstmt.setString(4, vo.getTel());
+            pstmt.setInt(5, vo.getNum());
             flag = pstmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -168,17 +175,17 @@ public class BoardDAOimpl implements BoardDAO {
     }
 
     @Override
-    public int delete(BoardVO vo) {
+    public int delete(MemberVO vo) {
         System.out.println("delete()...");
         System.out.println(vo);
         int flag = 0;
 
         try {
-            conn = DriverManager.getConnection(BoardDB_postgres.URL, BoardDB_postgres.USER, BoardDB_postgres.PASSWORD);
+            conn = DriverManager.getConnection(MemberDB_postgres.URL, MemberDB_postgres.USER, MemberDB_postgres.PASSWORD);
             System.out.println("conn successed...");
             // �Է�,����,���� : DML
 
-            pstmt = conn.prepareStatement(BoardDB_postgres.SQL_DELETE);
+            pstmt = conn.prepareStatement(MemberDB_postgres.SQL_DELETE);
             pstmt.setInt(1, vo.getNum());
             flag = pstmt.executeUpdate();
 
@@ -214,78 +221,25 @@ public class BoardDAOimpl implements BoardDAO {
     }
 
     @Override
-    public BoardVO selectOne(BoardVO vo) {
-        System.out.println("selectOne()...");
-        System.out.println(vo.getNum());
-
-        BoardVO vo2 = new BoardVO();
-        try {
-            conn = DriverManager.getConnection(BoardDB_postgres.URL, BoardDB_postgres.USER, BoardDB_postgres.PASSWORD);
-            System.out.println("conn successed...");
-            // �˻� : DQL
-            pstmt = conn.prepareStatement(BoardDB_postgres.SQL_SELECT_ONE);
-            pstmt.setInt(1, vo.getNum());
-            rs = pstmt.executeQuery();
-
-            while (rs.next()) {
-                vo2.setNum(rs.getInt("num"));
-                vo2.setTitle(rs.getString("title"));
-                vo2.setContent(rs.getString("content"));
-                vo2.setWriter(rs.getString("writer"));
-                vo2.setWdate(rs.getTimestamp("wdate"));
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (pstmt != null) {
-                try {
-                    pstmt.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        } // end finally
-
-        return vo2;
-    }
-
-    @Override
-    public List<BoardVO> selectAll() {
+    public List<MemberVO> selectAll() {
         System.out.println("selectAll()...");
 
-        List<BoardVO> vos = new ArrayList<BoardVO>();
+        List<MemberVO> vos = new ArrayList<MemberVO>();
 
         try {
-            conn = DriverManager.getConnection(BoardDB_postgres.URL, BoardDB_postgres.USER, BoardDB_postgres.PASSWORD);
+            conn = DriverManager.getConnection(MemberDB_postgres.URL, MemberDB_postgres.USER, MemberDB_postgres.PASSWORD);
             System.out.println("conn successed...");
             // �˻� : DQL
-            pstmt = conn.prepareStatement(BoardDB_postgres.SQL_SELECT_ALL);
+            pstmt = conn.prepareStatement(MemberDB_postgres.SQL_SELECT_ALL);
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                BoardVO vo = new BoardVO();
+                MemberVO vo = new MemberVO();
                 vo.setNum(rs.getInt("num"));
-                vo.setTitle(rs.getString("Title"));
-                vo.setContent(rs.getString("Content"));
-                vo.setWriter(rs.getString("Writer"));
-                vo.setWdate(rs.getTimestamp("Wdate"));
+                vo.setId(rs.getString("id"));
+                vo.setPw(rs.getString("pw"));
+                vo.setName(rs.getString("name"));
+                vo.setTel(rs.getString("tel"));
                 vos.add(vo);
             }
 
@@ -320,34 +274,87 @@ public class BoardDAOimpl implements BoardDAO {
     }
 
     @Override
-    public List<BoardVO> searchList(String searchKey, String searchWord) {
+    public MemberVO selectOne(MemberVO vo) {
+        System.out.println("selectOne()...");
+        System.out.println(vo);
+
+        MemberVO vo2 = new MemberVO();
+
+        try {
+            conn = DriverManager.getConnection(MemberDB_postgres.URL, MemberDB_postgres.USER, MemberDB_postgres.PASSWORD);
+            System.out.println("conn successed...");
+            // �˻� : DQL
+            pstmt = conn.prepareStatement(MemberDB_postgres.SQL_SELECT_ONE);
+            pstmt.setInt(1, vo.getNum());
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                vo2.setNum(rs.getInt("num"));
+                vo2.setId(rs.getString("id"));
+                vo2.setPw(rs.getString("pw"));
+                vo2.setName(rs.getString("name"));
+                vo2.setTel(rs.getString("tel"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (pstmt != null) {
+                try {
+                    pstmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        } // end finally
+
+        return vo2;
+    }
+
+    @Override
+    public List<MemberVO> searchList(String searchKey, String searchWord) {
         System.out.println("searchList()...");
         System.out.println(searchKey);
         System.out.println(searchWord);
 
-        List<BoardVO> vos = new ArrayList<BoardVO>();
+        List<MemberVO> vos = new ArrayList<MemberVO>();
+
         try {
-            conn = DriverManager.getConnection(BoardDB_postgres.URL, BoardDB_postgres.USER, BoardDB_postgres.PASSWORD);
+            conn = DriverManager.getConnection(MemberDB_postgres.URL, MemberDB_postgres.USER, MemberDB_postgres.PASSWORD);
             System.out.println("conn successed...");
             // 검색 : DQL
-            if (searchKey.equals("title")) {
-                pstmt = conn.prepareStatement(BoardDB_postgres.SQL_SEARCH_LIST_TITLE);
-            } else if (searchKey.equals("content")) {
-                pstmt = conn.prepareStatement(BoardDB_postgres.SQL_SEARCH_LIST_CONTENT);
-            } else if (searchKey.equals("writer")) {
-                pstmt = conn.prepareStatement(BoardDB_postgres.SQL_SEARCH_LIST_WRITER);
+            if (searchKey.equals("name")) {
+                pstmt = conn.prepareStatement(MemberDB_postgres.SQL_SEARCH_LIST_NAME);
+            } else if (searchKey.equals("tel")) {
+                pstmt = conn.prepareStatement(MemberDB_postgres.SQL_SEARCH_LIST_TEL);
             }
 
             pstmt.setString(1, "%" + searchWord + "%");
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                BoardVO vo = new BoardVO();
+                MemberVO vo = new MemberVO();
                 vo.setNum(rs.getInt("num"));
-                vo.setTitle(rs.getString("title"));
-                vo.setContent(rs.getString("content"));
-                vo.setWriter(rs.getString("writer"));
-                vo.setWdate(rs.getTimestamp("wdate"));
+                vo.setId(rs.getString("id"));
+                vo.setPw(rs.getString("pw"));
+                vo.setName(rs.getString("name"));
+                vo.setTel(rs.getString("tel"));
                 vos.add(vo);
             }
 

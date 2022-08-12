@@ -1,24 +1,23 @@
-package test.com.member;
+package test.com.mine;
 
-import java.io.Serializable;
 import java.util.Objects;
 
-public class MemberVO implements Serializable {
+public class MemberVO {
 
-	// ¹øÈ£num,¾ÆÀÌµğid,ºñ¹øpw,ÀÌ¸§name,Æù¹øtel
-	// ¼Ó¼º Àº´ĞÇØ¼­ ¼±¾ğ
+	// ë²ˆí˜¸num,ì•„ì´ë””id,ë¹„ë²ˆpw,ì´ë¦„name,í°ë²ˆtel
+	// ì†ì„± ì€ë‹‰í•´ì„œ ì„ ì–¸
 	private int num;
 	private String id;
 	private String pw;
 	private String name;
 	private String tel;
 
-	// ¸Å°³º¯¼ö¾ø´Â »ı¼ºÀÚ1°³ ¸¸µå½Ã°í
+	// ë§¤ê°œë³€ìˆ˜ì—†ëŠ” ìƒì„±ì1ê°œ ë§Œë“œì‹œê³ 
 	public MemberVO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	// ¸ğµç ¼Ó¼ºÀ» ¸Å°³º¯¼ö·ÎÇÏ´Â »ı¼ºÀÚ 1°³ Ãß°¡
+	// ëª¨ë“  ì†ì„±ì„ ë§¤ê°œë³€ìˆ˜ë¡œí•˜ëŠ” ìƒì„±ì 1ê°œ ì¶”ê°€
 	public MemberVO(int num, String id, String pw, String name, String tel) {
 		super();
 		this.num = num;
@@ -28,7 +27,7 @@ public class MemberVO implements Serializable {
 		this.tel = tel;
 	}
 
-	// °ÔÅÍ&¼¼ÅÍ ±¸Çö
+	// ê²Œí„°&ì„¸í„° êµ¬í˜„
 	public int getNum() {
 		return num;
 	}
@@ -69,13 +68,13 @@ public class MemberVO implements Serializable {
 		this.tel = tel;
 	}
 
-	// toString ÀçÁ¤ÀÇ
+	// toString ì¬ì •ì˜
 	@Override
 	public String toString() {
 		return "MemberVO [num=" + num + ", id=" + id + ", pw=" + pw + ", name=" + name + ", tel=" + tel + "]";
 	}
 
-	// µ¥ÀÌÅÍÅ¬·¡½º¿ë ÇÔ¼ö ÀçÁ¤ÀÇ
+	// ë°ì´í„°í´ë˜ìŠ¤ìš© í•¨ìˆ˜ ì¬ì •ì˜
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, name, num, pw, tel);

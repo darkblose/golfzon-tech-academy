@@ -1,4 +1,4 @@
-package test.com.board;
+package test.com.board.model;
 
 public interface BoardDB_postgres {
     String DRIVER_NAME = "org.postgresql.Driver";

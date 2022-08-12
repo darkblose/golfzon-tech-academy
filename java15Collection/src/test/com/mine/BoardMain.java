@@ -1,4 +1,4 @@
-package test.com;
+package test.com.mine;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

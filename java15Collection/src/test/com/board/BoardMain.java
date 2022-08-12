@@ -1,9 +1,6 @@
 package test.com.board;
 
-import test.com.board.model.BoardDAO;
-import test.com.board.model.BoardDAOimpl;
-import test.com.board.model.BoardVO;
-
+import java.util.Date;
 import java.util.List;
 
 public class BoardMain {
@@ -20,19 +17,20 @@ public class BoardMain {
 		
 		//1.insert
 		BoardVO vo = new BoardVO();
-
-		vo.setTitle("t2t2t2t");
-		vo.setContent("c2c2c2");
-		vo.setWriter("l2l2l2l");
-
+		vo.setNum(22);
+		vo.setTitle("title2");
+		vo.setContent("content2");
+		vo.setWriter("kim2");
+		vo.setWdate(new Date());
 		int result = dao.insert(vo);
 		System.out.println("result:"+result);
 		//2.update
 		vo = new BoardVO();
-		vo.setNum(12);
-		vo.setTitle("EEEEEE");
-		vo.setContent("CCCCC3");
-		vo.setWriter("LLLL3");
+		vo.setNum(33);
+		vo.setTitle("title3");
+		vo.setContent("content3");
+		vo.setWriter("kim3");
+		vo.setWdate(new Date());
 		result = dao.update(vo);
 		System.out.println("result:"+result);
 		
@@ -44,7 +42,7 @@ public class BoardMain {
 		
 		//4.selectOne
 		vo = new BoardVO();
-		vo.setNum(40);
+		vo.setNum(55);
 		BoardVO vo2 = dao.selectOne(vo);
 		System.out.println(vo2);
 		
@@ -55,18 +53,13 @@ public class BoardMain {
 		}
 		
 		//6.searchList
-		List<BoardVO> vos2 = dao.searchList("title", "ti");
+//		List<BoardVO> vos2 = dao.searchList("title", "ti");
+//		List<BoardVO> vos2 = dao.searchList("content", "co");
+		List<BoardVO> vos2 = dao.searchList("writer", "ki");
 		for (BoardVO x : vos2) {
 			System.out.println(x);
 		}
-		vos2 = dao.searchList("content", "co");
-		for (BoardVO x : vos2) {
-			System.out.println(x);
-		}
-		vos2 = dao.searchList("writer", "ki");
-		for (BoardVO x : vos2) {
-			System.out.println(x);
-		}
+		
 
 	}//end main
 

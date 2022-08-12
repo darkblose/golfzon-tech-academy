@@ -1,5 +1,9 @@
 package test.com.member;
 
+import test.com.member.model.MemberDAO;
+import test.com.member.model.MemberDAOimpl;
+import test.com.member.model.MemberVO;
+
 import java.util.List;
 
 public class MemberMain {
