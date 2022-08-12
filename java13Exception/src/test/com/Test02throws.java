@@ -6,7 +6,7 @@ public class Test02throws {
     public static void main(String[] args) /*throws IOException*/ {
         System.out.println("Hello throws");
         // throws 처리: 예외 전가
-        // try~catch : 예외 처리
+        // try ~ catch : 예외 처리
 
         InputStream is = null;
         Reader r = null;

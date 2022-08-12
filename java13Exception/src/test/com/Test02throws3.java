@@ -6,7 +6,7 @@ public class Test02throws3 {
     public static void main(String[] args) {
         System.out.println("Hello throws");
         // throws 처리: 예외 전가
-        // try~catch : 예외 처리
+        // try ~ catch : 예외 처리
 
         //java.sql.*;
         Connection conn = null;
