@@ -77,7 +77,6 @@ public class BoardDAOimpl implements BoardDAO {
         try {
             conn = DriverManager.getConnection(BoardDB_postgres.URL, BoardDB_postgres.USER, BoardDB_postgres.PASSWORD);
             System.out.println("conn successed...");
-            // �Է�,����,���� : DML
 
             pstmt = conn.prepareStatement(BoardDB_postgres.SQL_INSERT);
 
@@ -119,7 +118,6 @@ public class BoardDAOimpl implements BoardDAO {
     @Override
     public int update(BoardVO vo) {
         System.out.println("update()...");
-        System.out.println(vo);
 
         int flag = 0;
 
@@ -170,7 +168,6 @@ public class BoardDAOimpl implements BoardDAO {
     @Override
     public int delete(BoardVO vo) {
         System.out.println("delete()...");
-        System.out.println(vo);
         int flag = 0;
 
         try {

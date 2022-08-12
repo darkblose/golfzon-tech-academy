@@ -4,72 +4,174 @@ import test.com.member.model.MemberDAO;
 import test.com.member.model.MemberDAOimpl;
 import test.com.member.model.MemberVO;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
 
 public class MemberMain {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("Hello jdbc....");
 
 
-        // table ìƒì„±,ì‚­ì œ,ë‚´ìš©ì œê±°,ìˆ˜ì • : DDL
+        // table »ı¼º,»èÁ¦,³»¿ëÁ¦°Å,¼öÁ¤ : DDL
 
         MemberDAO dao = new MemberDAOimpl();
 
-        // ë‚´ìš©ìˆ˜ì •,ì‚­ì œ,ì…ë ¥ : DML
+        // ³»¿ë¼öÁ¤,»èÁ¦,ÀÔ·Â : DML
         MemberVO vo = new MemberVO();
-        vo.setId("cc330 ");
-        vo.setPw("cc33300");
-        vo.setName("ccc330");
-        vo.setTel("cc330");
+        boolean On = true;
+        int Num = 0;
+        String Id = null;
+        String Pw = null;
+        String Name = null;
+        String Tel = null;
 
-//		int result = dao.insert(vo);
-//		System.out.println("result:" + result);
-
-//		vo = new MemberVO();
-//		vo.setId("admin99");
-//		vo.setPw("hi123499");
-//		vo.setName("kim99");
-//		vo.setTel("0299");
-//		vo.setNum(2);
-//		int result = dao.update(vo);
-//		System.out.println("result:"+result);
-
-        vo = new MemberVO();
-        vo.setNum(3);
-        int result = dao.delete(vo);
-        System.out.println("result:"+result);//1
-
-
-        // ë‚´ìš©ê²€ìƒ‰(ëª¨ë‘,í•œê°œ,ê²€ìƒ‰ì–´) : DQL
-        List<MemberVO> vos = dao.selectAll();
-        //for~
-        for (MemberVO x : vos) {
-            System.out.print(x.getNum()+" ");
-            System.out.print(x.getId()+" ");
-            System.out.print(x.getPw()+" ");
-            System.out.print(x.getName()+" ");
-            System.out.println(x.getTel());
+        while (On) {
+            System.out.println();
+            System.out.println("½ÇÇàÇÒ ¸Ş´º¸¦ ¼±ÅÃÇÏ¼¼¿ä.");
+            System.out.println("1. ÀÔ·Â 2. ¼öÁ¤ 3. »èÁ¦ 4. ¹øÈ£°Ë»ö 5. ¸ğµÎ °Ë»ö 6. Å°¿öµå °Ë»ö 9. Á¾·á");
+            System.out.println();
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            int select = Integer.parseInt(br.readLine());
+            switch (select) {
+                case 1:
+                    System.out.println();
+                    System.out.println("=========================================");
+                    System.out.println("ÀÔ·Â ÆäÀÌÁö");
+                    System.out.println("-----------------------------------------");
+                    System.out.print("¾ÆÀÌµğ: ");
+                    br = new BufferedReader(new InputStreamReader(System.in));
+                    Id = br.readLine();
+                    System.out.print("PW: ");
+                    br = new BufferedReader(new InputStreamReader(System.in));
+                    Pw = br.readLine();
+                    System.out.print("ÀÌ¸§: ");
+                    br = new BufferedReader(new InputStreamReader(System.in));
+                    Name = br.readLine();
+                    System.out.print("ÀüÈ­¹øÈ£: ");
+                    br = new BufferedReader(new InputStreamReader(System.in));
+                    Tel = br.readLine();
+                    vo.setId(Id);
+                    vo.setPw(Pw);
+                    vo.setName(Name);
+                    vo.setTel(Tel);
+                    int result = dao.insert(vo);
+                    if (result == 1) {
+                        System.out.println("ÀÔ·Â ¼º°ø");
+                        System.out.println("=========================================");
+                    }
+                    break;
+                case 2:
+                    System.out.println();
+                    System.out.println("=========================================");
+                    System.out.println("¼öÁ¤ ÆäÀÌÁö");
+                    System.out.println("-----------------------------------------");
+                    System.out.print("È¸¿ø ¹øÈ£: ");
+                    br = new BufferedReader(new InputStreamReader(System.in));
+                    Num = Integer.parseInt(br.readLine());
+                    System.out.print("¾ÆÀÌµğ: ");
+                    br = new BufferedReader(new InputStreamReader(System.in));
+                    Id = br.readLine();
+                    System.out.print("PW: ");
+                    br = new BufferedReader(new InputStreamReader(System.in));
+                    Pw = br.readLine();
+                    System.out.print("ÀÌ¸§: ");
+                    br = new BufferedReader(new InputStreamReader(System.in));
+                    Name = br.readLine();
+                    System.out.print("¹øÈ£: ");
+                    br = new BufferedReader(new InputStreamReader(System.in));
+                    Tel = br.readLine();
+                    System.out.println();
+                    vo = new MemberVO();
+                    vo.setNum(Num);
+                    vo.setId(Id);
+                    vo.setPw(Pw);
+                    vo.setName(Name);
+                    vo.setTel(Tel);
+                    result = dao.update(vo);
+                    if (result == 1) {
+                        System.out.println("¼öÁ¤ ¼º°ø");
+                        System.out.println("=========================================");
+                    }
+                    break;
+                case 3:
+                    System.out.println();
+                    System.out.println("=========================================");
+                    System.out.println("»èÁ¦ ÆäÀÌÁö");
+                    System.out.println("-----------------------------------------");
+                    System.out.print("È¸¿ø ¹øÈ£: ");
+                    br = new BufferedReader(new InputStreamReader(System.in));
+                    Num = Integer.parseInt(br.readLine());
+                    vo = new MemberVO();
+                    vo.setNum(Num);
+                    result = dao.delete(vo);
+                    if (result == 1) {
+                        System.out.println("»èÁ¦ ¼º°ø");
+                        System.out.println("=========================================");
+                    }
+                    break;
+                case 4:
+                    System.out.println();
+                    System.out.println("=========================================");
+                    System.out.println("¹øÈ£ °Ë»ö ÆäÀÌÁö");
+                    System.out.println("-----------------------------------------");
+                    System.out.print("±Û ¹øÈ£: ");
+                    br = new BufferedReader(new InputStreamReader(System.in));
+                    Num = Integer.parseInt(br.readLine());
+                    vo = new MemberVO();
+                    vo.setNum(Num);
+                    MemberVO vo2 = dao.selectOne(vo);
+                    System.out.println("-----------------------------------------");
+                    System.out.println("No\t ID\t\tPW\t\tNAME\tTEL");
+                    System.out.println("-----------------------------------------");
+                    System.out.println(vo2.getNum() + "\t" + vo2.getId() + "\t" + vo2.getPw() + "\t" + vo2.getName() + "\t" + vo2.getTel());
+                    System.out.println();
+                    System.out.println("=========================================");
+                    break;
+                case 5:
+                    System.out.println();
+                    System.out.println("=========================================");
+                    System.out.println("¸ğµÎ °Ë»ö ÆäÀÌÁö");
+                    System.out.println("-----------------------------------------");
+                    List<MemberVO> vos = dao.selectAll();
+                    System.out.println("-----------------------------------------");
+                    System.out.println("No\t ID\t\tPW\t\tNAME\tTEL");
+                    System.out.println("-----------------------------------------");
+                    for (MemberVO x : vos) {
+                        System.out.println(x.getNum() + "\t" + x.getId() + "\t" + x.getPw() + "\t" + x.getName() + "\t" + x.getTel());
+                    }
+                    System.out.println("=========================================");
+                    break;
+                case 6:
+                    System.out.println();
+                    System.out.println("=========================================");
+                    System.out.println("Å°¿öµå °Ë»ö ÆäÀÌÁö");
+                    System.out.println("-----------------------------------------");
+                    System.out.print("Key: ");
+                    br = new BufferedReader(new InputStreamReader(System.in));
+                    String Key = br.readLine();
+                    System.out.print("Word: ");
+                    br = new BufferedReader(new InputStreamReader(System.in));
+                    String Word = br.readLine();
+                    System.out.println();
+                    List<MemberVO> vos2 = dao.searchList(Key, Word);
+                    System.out.println("-----------------------------------------");
+                    System.out.println("No\t ID\\ttPW\t\tNAME\tTEL");
+                    System.out.println("-----------------------------------------");
+                    for (MemberVO x : vos2) {
+                        System.out.println(x.getNum() + "\t" + x.getId() + "\t" + x.getPw() + "\t" + x.getName() + "\t" + x.getTel());
+                    }
+                    System.out.println("=========================================");
+                    break;
+                case 9:
+                    On = false;
+                    break;
+            }
         }
 
-        System.out.println("===========");
-        vo = new MemberVO();
-        vo.setNum(2);
-        MemberVO vo2 = dao.selectOne(vo);
-        System.out.println(vo2);
-        System.out.println("===========");
+    }//end main
 
-        List<MemberVO> vos2 = dao.searchList("name","lee");
-        for (MemberVO x : vos2) {
-            System.out.println(x);
-        }
-
-        vos2 = dao.searchList("tel","33");
-        for (MemberVO x : vos2) {
-            System.out.println(x);
-        }
-
-    }// end main
-
-}// end class
+}//end class
