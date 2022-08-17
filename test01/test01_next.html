@@ -6,6 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+        .pagination {
+            display: inline-block;
+        }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,7 +48,14 @@
         Hello html!! <br />
         Hello html!!
     </p>
-    <a href="test01_a.html#TOP"> Go Main</a>
+    <div class="pagination">
+        <a href="test01_a.html">1</a>
+        <a href="test01_next.html">2</a>
+        <a href="test01_tag.html">3</a>
+
+    </div>
+    <br>
+    <a href="#TOP"> Go Top</a>
 </body>
 
 </html>

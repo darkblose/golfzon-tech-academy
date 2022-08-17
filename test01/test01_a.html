@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+        body {
+            background-color: bisque;
+        }
+
         #nav ul {
             list-style: none;
             margin: 0;
@@ -30,6 +34,17 @@
             text-decoration: none;
             text-align: center;
         }
+
+        .pagination {
+            display: inline-block;
+        }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
     </style>
 
     <script>
@@ -43,11 +58,10 @@
     <h1>DAY14_20220816</h1>
     <h1 id="top">NewFile.html</h1>
     <h2>웹 프론트엔드 개발을 시작합니다.</h2>
-    <p>Git 테스트</p>
     <div id="nav">
         <ul>
             <li><a href="test01_next.html"> nextpage</a></li>
-            <li><a href="test02_tag.html"> 태그 종류</a></li>
+            <li><a href="test01_tag.html"> 태그 종류</a></li>
             <li><a href="https://www.naver.com"> Naver</a></li>
             <li><a href="https://www.google.com"> Google</a></li>
             <li><a href="#java"> java란?</a></li>
@@ -83,30 +97,13 @@
     </ul>
     <hr>
 
-    <h1 id="java">Hello Java!!</h1>
-    <h2>Hello Java!!</h2>
-    <h3>Hello Java!!</h3>
-    <h4>Hello Java!!</h4>
-    <h5>Hello Java!!</h5>
-    <h6>Hello Java!!</h6>
-    <p>
-        Hello Java!! <br />
-        Hello Java!! <br />
-        Hello Java!!
-    </p>
+    <div class="pagination">
+        <a href="test01_a.html">1</a>
+        <a href="test01_next.html">2</a>
+        <a href="test01_tag.html">3</a>
 
-
-    <h1 id="html">Hello html!!</h1>
-    <h2>Hello html!!</h2>
-    <h3>Hello html!!</h3>
-    <h4>Hello html!!</h4>
-    <h5>Hello html!!</h5>
-    <h6>Hello html!!</h6>
-    <p>
-        Hello html!! <br />
-        Hello html!! <br />
-        Hello html!!
-    </p>
+    </div>
+    <br>
     <a href="#TOP"> Go Top</a>
 </body>
 
