@@ -1,0 +1,22 @@
+body {
+  background-color: beige;
+}
+
+#profile {
+  color: rgb(255, 0, 0);
+}
+
+#stats-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.stat {
+  text-align: center;
+}
