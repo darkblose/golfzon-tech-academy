@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js08</title>
+    <script>
+        console.log("Hello Object...");
+
+        // [,,] : array
+        // {key:value, key:value...} : object
+        let obj = {};
+        console.log(obj);
+        obj = {
+            name: "kim",
+            age: 33,
+            arr: [11, 22, 33],
+            vo: { id: "admin" },
+            fn: function () { }
+        };
+        console.log(obj);
+
+        obj = {};
+        console.log(obj);
+        obj["name"] = "lee";
+        obj["id"] = "admin";
+        console.log(obj["name"], obj["id"]);
+        console.log(obj.name, obj.id);
+
+        obj.arr = [11, 22, 33];
+        console.log(obj);
+        for (const i in obj.arr) {
+            console.log(obj.arr[i]);
+        }
+
+        obj.sleep = function () {
+            console.log("sleep()...");
+        };
+        obj.sleep();
+
+        // delete obj.name : 속성 삭제
+        console.log("name" in obj);
+        console.log("name2" in obj);
+
+
+    </script>
+</head>
+
+<body>
+    <h2>object</h2>
+</body>
+
+</html>

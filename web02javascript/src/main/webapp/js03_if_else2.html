@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        window.onload = function(){
+            let avg = 99.7;
+            let grade = "A";
+    
+            if (avg>=90) {
+                grade = "A";
+            }else if (avg>=80) {
+                grade = "B";
+            }else if (avg>=70) {
+                grade = "C";
+            }else if (avg>=60) {
+                grade = "D";
+            } else {
+                grade = "F";
+            }
+            console.log("avg:"+avg);
+            console.log("grade:"+grade);
+
+            let p_avg = document.querySelector("#p_avg");
+            //console.log(p_avg);
+            // p_avg.innerText = "<b>avg</b>:"+avg;
+            p_avg.innerHTML = "<b>avg</b>:"+avg;
+
+            let p_grade = document.querySelector("#p_grade");
+            //console.log(p_grade);
+            // p_grade.innerText = "grade:"+grade;
+            p_grade.innerHTML = "<b>grade</b>:"+grade;
+        };
+               
+
+    </script>
+</head>
+<body>
+    <div>
+        <p id="p_avg">if~else</p>
+        <p id="p_grade">if~else</p>
+    </div>
+</body>
+</html>

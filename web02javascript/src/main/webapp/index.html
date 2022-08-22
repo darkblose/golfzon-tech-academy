@@ -1,104 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>Document</title>
     <script src="main.js"></script>
     <script>
-        window.onload = function () {
-            console.log("onload...");
-        }
+        window.onload = function(){
+            console.log("onload....");
+        };
+
         var a = 10;
         console.log(a);
-        console.log(typeof (a));
+        console.log(typeof(a));
 
-        console.log("===============");
-
+        console.log("===========");
         var a = "kim";
+        a = "kim12222";
         console.log(a);
-        console.log(typeof (a));
+        console.log(typeof(a));
 
-        console.log("===============");
-
+        console.log("===========");
         var a = 3.14;
         console.log(a);
-        console.log(typeof (a));
+        console.log(typeof(a));
+        console.log("===========");
 
-        console.log("===============");
-
-        var b;
+        var b;//undefined
         console.log(b);
-        console.log(typeof (b));
-
-        console.log("===============");
-
+        console.log(typeof(b));
+        console.log("===========");
+        
         var obj = null;
         console.log(obj);
-        console.log(typeof (obj));
-
-        console.log("===============");
+        console.log(typeof(obj));
+        console.log("===========");
 
         var arr = [];
         console.log(arr);
-        console.log(typeof (arr));
-
-        console.log("===============");
+        console.log(typeof(arr));
+        console.log("===========");
 
         var vo = {};
         console.log(vo);
-        console.log(typeof (vo));
+        console.log(typeof(vo));
+        console.log("===========");
 
-        console.log("===============");
-
-        var fn = function () { };
+        var fn = function(){};
         console.log(fn);
-        console.log(typeof (fn));
-
-        console.log("===============");
+        console.log(typeof(fn));
+        console.log("===========");
 
         var bool = true;
         console.log(bool);
-        console.log(typeof (bool));
-
-        console.log("===============");
-
+        console.log(typeof(bool));
+        console.log("===========");
+        
         console.log(String(bool));
-        console.log(typeof (String(bool)));
-
-        console.log("===============");
-
-        console.log(typeof (Number("123")));
-        console.log(typeof (Number(true)));
-        console.log(typeof (Number("abc")));
+        console.log(typeof(String(bool)));
+        console.log(typeof(String(333)));
+        console.log("===========");
+        
+        console.log(typeof(Number("123")));
+        console.log(typeof(Number(true)));
+        console.log(typeof(Number("abc")));
+        console.log(typeof(NaN));
         console.log(Number("abc"));
-        console.log(typeof (NaN));
-
-        console.log("===============");
-
-        console.log(Boolean("false"));
-        console.log(typeof (Boolean("false")));
-
-        console.log(Boolean(""));
-        console.log(typeof (Boolean("false")));
-
-        console.log(Boolean(" "));
-        console.log(typeof (Boolean("false")));
-
+        console.log("===========");
+        
+        console.log(Boolean("abc"));//true
+        console.log(Boolean(""));//false
+        console.log("===========");
         console.log(Boolean({}));
-        console.log(Boolean(0));
+        console.log(Boolean(null));
+        console.log("===========");
         console.log(Boolean(10));
+        console.log(Boolean(0));
+        console.log("===========");
+
         console.log(Boolean(undefined));
         console.log(Boolean(NaN));
+        console.log("===========");
+
 
 
     </script>
 </head>
-
 <body>
-    <h1>index</h1>
+    <h1>index page</h1>
 </body>
-
 </html>

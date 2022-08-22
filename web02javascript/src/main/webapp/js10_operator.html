@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log("Hello operator...");
+
+        //1.산술 + - * / % **
+        console.log(5 ** 5);
+
+        //2.할당,대입,복합할당 = += -= ,,,,&=
+
+        //3.비트연산 &,|,^
+
+        //4.비교 ==,!=,>,<,>=,<=
+        console.log(5 == 5);
+        console.log(5 === 5);
+        console.log("============");
+        console.log("kim" == "kim");
+        console.log("kim" === "kim");
+        console.log("============");
+        console.log("" == 0);
+        console.log("" === 0);
+        console.log("============");
+        console.log(false == 0);
+        console.log(false === 0);
+
+        //5.증감연산 ++,--
+        console.log("============");
+
+        //6.논리연산 &&,||
+        console.log("============");
+        console.log(true && true);
+        console.log(false && true);
+        console.log(0 && true);
+
+        console.log("============");
+        console.log(false || false);
+        console.log(true || false);
+        console.log(false || true);
+        console.log("" || "kim");
+        console.log(0 || 1);
+        console.log(undefined || null);
+        console.log(undefined || "Hello");
+
+        let name = "yang";
+        let x = name || "lee";
+        console.log("x:" + x);
+
+        function test(params) {//params=0 디폴트값설정가능.
+            // params = params || 0;
+            params ||= 0;//ECMA2020추가됨.&&=
+            console.log("aaa:" + params);
+        }
+        test(111);
+
+        function test2(params = [1, 2, 3]) {
+            // params = params || [1,2,3];
+            // params ||=  [1,2,3];
+            console.log("bbb:" + params[0]);
+        }
+        test2();
+        test2([44, 55, 66]);
+
+
+        console.log("============");
+        //7.삼항연산 ? : 
+        console.log(true ? "kim" : "lee");
+        console.log(0 ? "kim" : "lee");
+
+        //8.ECMA2020 : ?. , ?? , ??=
+        let user = {
+            name: { first: "길동", last: "홍" }
+            // ,address:{street:"GangNam"}
+        };
+        console.log(user.name.first);
+        console.log(user.address);//undefined
+        console.log(user.address || { address: { street: "aaa" } });//undefined
+        // console.log(user.address.street);//TypeError:undefined.street
+        console.log(user.address?.street);//undefined
+        console.log(user.address?.street || "Ori");//undefined,null,0,"",false 대체값 "Ori"
+        console.log(user.address?.street ?? "Ori");//undefined,null만 대체값 "Ori"
+        let street = user.address?.street;
+        street ??= "Oriqqqqqq";
+        console.log(street);
+    </script>
+</head>
+
+<body>
+    <h1>Operator</h1>
+</body>
+
+</html>

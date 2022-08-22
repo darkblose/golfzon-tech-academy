@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js08_2</title>
+    <script>
+        console.log("Hello Object...");
+
+        // [,,] : array >>> new Array(5);
+        // {key:value, key:value...} : object >>> new Object();
+        let obj = new Object();
+        obj.num = 1;
+        obj.id = "admin";
+        obj.pw = "hi1234";
+        console.log(obj);
+
+        // 함수를 이용해서 생성하기.
+        function Student(params) {
+
+        }
+
+        let st = new Student();
+        st.num = 22;
+        st.id = "tester";
+        st.pw = "h13344";
+        console.log(st);
+
+        function Person() {
+            console.log("Person()...");
+            this.num = 33;
+            this.name = "Yang";
+            this.age = 28;
+        }
+
+        let p = new Person();
+        console.log(p);
+
+
+        function Car(x, y) {
+            console.log("Car(x,y)...");
+            this.price = x;
+            this.model = y;
+        }
+
+        let car = new Car();
+        console.log(car);
+
+        car = new Car(1000, "audi");
+        console.log(car);
+
+    </script>
+</head>
+
+<body>
+    <h2>object</h2>
+</body>
+
+</html>
