@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+</head>
+
+<body>
+    <form action="signupOK.do" method="get">
+        <div id="ID">
+            <h2>ID</h2>
+            <label for="id">ID: </label><input type="text" name="id" id="id" placeholder="Input ID">
+            <button id="btn_idcheck" onclick="idCheck()"> 중복체크 </button>
+        </div>
+
+        <div id="PW">
+            <h2>PW</h2>
+            <label for="pw">PW: </label><input type="password" name="pw" id="pw" placeholder="Input PW">
+            <label for="pw2">PW2: </label><input type="password" name="pw" id="pw" placeholder="Input PW Again">
+        </div>
+
+        <div id="NAME">
+            <h2>NAME</h2>
+            <label for="name">NAME: </label><input type="text" name="name" id="name">
+        </div>
+
+        <div id="TEL">
+            <h2>TEL</h2>
+            <label for="tel">TEL: </label>
+            <select name="" id="">
+                <option value="">KT</option>
+                <option value="">SKT</option>
+                <option value="">LG U+</option>
+            </select>
+            <input type="text" value="010" disabled>
+            <input type=" text" placeholder="0000">
+            <input type="text" placeholder="0000">
+            <button type="submit">인증번호 전송</button>
+        </div>
+    </form>
+
+    <form method="post" enctype="multipart/form-data">
+        <div id="AddInfo">
+            <h2>Additional Info</h2>
+            <div id="sex">
+                <h2>성별</h2>
+                <input type="radio" class="MF" id="man" name="man"> 남자
+                <input type="radio" class="MF" id="woman" name="woman"> 여자
+            </div>
+            <div id="hobby">
+                <h3>Hobby</h3>
+                <input type="checkbox" class="hobby" id="baseball" name="baseball"> 야구
+                <input type="checkbox" class="hobby" id="soccer" name="soccer"> 축구
+                <input type="checkbox" class="hobby" id="basketball" name="basketball"> 농구
+            </div>
+            <div id="range">
+                <h3>비율</h3>
+                <label for="range"> 비율: </label><input type="range">
+            </div>
+            <div id="date">
+                <h3>date</h3>
+                <label for="birthday"> 생일: </label><input type="date" id="birthday" name="birthday" value="2000-01-01">
+            </div>
+            <div id="hidden">
+                <h3>hidden</h3>
+                <label for="num"> NUM: </label><input type="hidden" id="num" name="num" value="1">
+            </div>
+            <div id="file">
+                <h3>file</h3>
+                <label for="file1"> 첨부파일: </label><input type="file" id="file1" name="file1">
+            </div>
+        </div>
+        <br>
+        <input type="submit">
+        <button><a href="test_login.html">뒤로 가기</a></button>
+    </form>
+
+
+
+</body>
+
+</html>

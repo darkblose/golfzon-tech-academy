@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log("Hello operator...");
+
+        //1.산술 + - * / % **
+        console.log(5**5);
+
+        //2.할당,대입,복합할당 = += -= ,,,,&=
+
+        //3.비트연산 &,|,^
+
+        //4.비교 ==,!=,>,<,>=,<=
+        console.log(5==5);
+        console.log(5===5);
+        console.log("============");
+        console.log("kim"=="kim");
+        console.log("kim"==="kim");
+        console.log("============");
+        console.log(""==0);
+        console.log(""===0);
+        console.log("============");
+        console.log(false==0);
+        console.log(false===0);
+
+        //5.증감연산 ++,--
+        console.log("============");
+
+        //6.논리연산 &&,||
+        console.log("============");
+        console.log(true && true);
+        console.log(false && true);
+        console.log(0 && true);
+        
+        console.log("============");
+        console.log(false || false);
+        console.log(true || false);
+        console.log(false || true);
+        console.log("" || "kim");
+        console.log(0 || 1);
+        console.log(undefined || null);
+        console.log(undefined || "Hello");
+
+        let name = "yang";
+        let x = name || "lee";
+        console.log("x:"+x);
+
+        function test(params) {
+            params = params || 0;
+            console.log("aaa:"+params);
+        }
+        test(111);
+
+        function test2(params) {
+            params = params || [1,2,3];
+            console.log("bbb:"+params[0]);
+        }
+        test2();
+        test2([44,55,66]);
+
+        
+        console.log("============");
+        //7.삼항연산 ? : 
+        console.log(true ? "kim":"lee");
+        console.log( 0 ? "kim":"lee");
+
+
+    </script>
+</head>
+<body>
+    <h1>Operator</h1>
+</body>
+</html>

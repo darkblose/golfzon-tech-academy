@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js08_3</title>
+    <script>
+        console.log("Hello Object...");
+
+        console.log("=============================");
+
+        // [,,] : array >>> new Array(5);
+        // {key:value, key:value...} : object >>> new Object();
+        let obj = new Object();
+        obj.num = 1;
+        obj.id = "admin";
+        obj.pw = "hi1234";
+        console.log(obj);
+
+        // 생성자함수 객체
+        // 클래스 선언
+        class Student {
+            kor = 99;
+            #tel = "010";
+            constructor() {
+                console.log("student...");
+                this.name = "lee";
+            }
+
+            firstTest() {
+                console.log("pass...");
+                return 1;
+            }
+        }
+
+        let st = new Student();
+        st.num = 11;
+        console.log(st);
+        st.firstTest();
+        console.log(st.firstTest());
+
+        console.log("=============================");
+
+        class Person {
+            constructor() {
+                console.log("person...");
+            }
+
+            sleep() {
+                console.log("Zzzzzzz.....");
+            }
+
+            #Nap() {
+                console.log("Take nap...Zz...");
+            }
+
+            eat(food_name) {
+                console.log("eat()...", food_name);
+                return [7, 12, 18];
+            }
+        }
+
+        let p = new Person();
+        p.name = "kim";
+        console.log(p);
+        p.eat("meal");
+        console.log(p.eat("meal"));
+        for (const i in p.eat("meal")) {
+            console.log(p.eat("meal")[i]);
+        }
+
+        console.log("=============================");
+
+        let arr_eatTime = p.eat("bread");
+        for (const i in arr_eatTime) {
+            console.log(arr_eatTime[i]);
+        }
+
+        console.log("=============================");
+
+        class Car {
+            constructor() {
+                console.log("car...");
+            }
+            fillOil(money) {
+                console.log("fill finish...");
+                return String(money / 1800);
+            }
+        }
+        let car = new Car();
+        car.hp = 535;
+        car.toque = 53;
+        car.speed = 260;
+        console.log(car);
+        console.log(car.fillOil(50000));
+
+        console.log("=============================");
+
+    </script>
+</head>
+
+<body>
+    <h2>object</h2>
+</body>
+
+</html>

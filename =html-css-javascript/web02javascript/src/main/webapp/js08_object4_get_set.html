@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js08_4</title>
+    <script>
+        console.log("Hello Object...");
+
+        console.log("=============================");
+
+        // [,,] : array >>> new Array(5);
+        // {key:value, key:value...} : object >>> new Object();
+        // 생성자함수 객체
+        // 클래스 선언
+
+        class Student {
+            #name = "0";
+            #kor = 0;
+            #math = 0;
+            #eng = 0;
+            constructor(name = "NoName", kor = 100, math = 100, eng = 100) {
+                console.log("Studnet...");
+                this.#name = name;
+                this.#kor = kor;
+                this.#math = math;
+                this.#eng = eng;
+            }
+        }
+
+        let st = new Student("lee", 88, 99, 100);
+        console.log(st);
+
+        console.log("=============================");
+
+        class Person {
+
+            constructor() {
+                console.log("Person...");
+            }
+        }
+
+        let p = new Person();
+        console.log(p);
+
+        console.log("=============================");
+
+        class Car {
+            #price = 0;
+            #model = "noModel";
+            #driver_name = "noName"
+            constructor() {
+                console.log("Car...");
+            }
+
+            setPrice(price) {
+                this.#price = price;
+            }
+
+            getPrice() {
+                return this.#price;
+            }
+
+            setModel(model) {
+                this.#model = model;
+            }
+
+            getModel() {
+                return this.#model;
+            }
+
+            setDriver_Name(driver_name) {
+                this.#driver_name = driver_name;
+            }
+
+            getDriver_Name() {
+                return this.#driver_name;
+            }
+        }
+
+        let car = new Car();
+        car.setPrice(1000);
+        car.setModel("R8");
+        car.setDriver_Name("LEE");
+        console.log(car.getPrice());
+        console.log(car.getModel());
+        console.log(car.getDriver_Name());
+        console.log(car);
+
+        console.log("=============================");
+
+    </script>
+</head>
+
+<body>
+    <h2>object</h2>
+</body>
+
+</html>

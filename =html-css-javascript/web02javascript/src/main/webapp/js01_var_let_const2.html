@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log('hello..');
+
+        var a = 10;
+        console.log(a);
+        var a = 100;
+        console.log(a);
+
+        console.log("kor:"+kor);
+
+        if(true){
+            console.log("name:"+name2);
+            var kor = 99;
+        }
+        var name2 = "kim";
+        console.log("kor:"+kor);
+
+        let b;
+        //let b = 20;//error
+        b = 20;
+        console.log(b);
+
+        if("kim"){
+            console.log("Hello:"+b);
+            // console.log("eng:"+eng);//error
+            let math = 77;
+            console.log("math:"+math);
+           
+        }
+        let eng = 88;
+        //console.log("math:"+math);
+
+        const c = 'aaa';//상수이며 반드시 초기화.
+        //const c = 'aaa';//let 처럼 같은 변수 선언불가.
+        //c = 'lee';//error >> readonly 수정불가.
+        console.log(c);
+
+        //var표기가 없는 변수선언가능.
+        //var과 유사하지만 함수와 연관해서 주의해야함. 
+        //x = 10;
+
+        // if(true){
+        //     console.log("x1:"+x);
+        //     //console.log("y:"+y);
+        // }
+        // y = 1000;
+        //var x;
+        sleep();
+        function sleep() {
+            x = 10;
+            console.log("x2:"+x);
+        }
+        sleep();
+        console.log("x3:"+x);
+
+    </script>
+</head>
+<body>
+    <h1>var let const</h1>
+</body>
+</html>

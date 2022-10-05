@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span:nth-child(odd){
+            color: blueviolet;
+        }
+        h3:nth-child(odd){
+            color: blueviolet;
+        }
+    </style>
+    <script>
+        console.log("Hello for");
+
+        
+        window.onload = function() {
+            let txt = "";
+            for (let i = 0; i < 10; i++) {
+                console.log(i);
+                txt += i;
+            }
+            console.log(txt);
+            let result = document.querySelector("#result");
+            result.innerHTML=txt;
+
+            
+
+            let count = document.querySelector("#count");
+            let cnt = "";
+            for (let i = 0; i < 10; i++) {
+                console.log(i);
+                // cnt += "<p>"+i+"</p>";
+                cnt += "<h3>"+i+"</h3>";
+                // cnt += "<span>"+i+"</span>";
+            }
+            count.innerHTML=cnt;
+            
+        };
+
+
+    </script>
+</head>
+<body>
+    <h3 id="result">for</h3>
+    <div id="count">
+    </div>
+</body>
+</html>
