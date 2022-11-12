@@ -1,0 +1,64 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="common_content(title)">
+	<div class="container">
+		<div class="input-form-backgroud row">
+			<div class="input-form col-md-12 mx-auto">
+				<h4 class="mb-3">[[${title}]]</h4>
+				<form class="validation-form" novalidate action="m_updateOK"
+					method="post">
+
+					<div class="mb-3">
+						<label for="num">NUM</label> : <span th:text="${vo2.id}"></span> <input type="hidden" class="form-control"
+							name="id" id="num" placeholder="" th:value="${vo2.id}" required>
+						<div class="invalid-feedback"></div>
+					</div>
+					<div class="mb-3">
+						<label for="id">Email</label> : <span th:text="${vo2.email}"></span> <input type="hidden" class="form-control"
+							name="email" id="email" placeholder="" th:value="${vo2.email}" required>
+						<div class="invalid-feedback"></div>
+					</div>
+					<div class="mb-3">
+						<label for="pwd">PWD</label> :  <input type="password"
+							class="form-control" name="pwd" id="pwd" placeholder=""
+							value="hi1234" required>
+						<div class="invalid-feedback">PW 입력해주세요.</div>
+					</div>
+					<div class="mb-3">
+						<label for="pw">권한</label> 
+						<select name="auth">
+							<option value="ROLE_ADMIN,ROLE_USER">관리자</option>
+							<option value="ROLE_USER">사용자</option>
+						</select>						
+					</div>
+
+					<hr class="mb-4">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="aggrement"
+							checked required> <label class="custom-control-label"
+							for="aggrement">개인정보 수집 및 이용에 동의합니다.</label>
+					</div>
+					<div class="mb-4"></div>
+					<button class="btn btn-primary btn-lg btn-block" type="submit">수정
+						완료</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+	<script>
+		window.addEventListener('load', () => {
+		  const forms = document.getElementsByClassName('validation-form');
+	
+		  Array.prototype.filter.call(forms, (form) => {
+			form.addEventListener('submit', function (event) {
+			  if (form.checkValidity() === false) {
+				event.preventDefault();
+				event.stopPropagation();
+			  }
+	
+			  form.classList.add('was-validated');
+			}, false);
+		  });
+		}, false);
+	  </script>
+</html>

@@ -1,0 +1,61 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="common_content(title)">
+	<div class="container">
+		<div class="input-form-backgroud row">
+			<div class="input-form col-md-12 mx-auto">
+				<h4 class="mb-3">[[${title}]]</h4>
+				
+				<p>총회원수([[${total_rowCount}]]명) / 보고싶은 행수 = 페이지 갯수 (나누어떨어질때와 남는행이 있을때 구분해줘야함.)</p>
+				<hr>
+				
+				<div th:if="${total_rowCount%5} == 0"  th:with="pageCount=${T(java.lang.Math).floor(total_rowCount/5)}">
+						<p>pageCount:[[${pageCount}]]</p>
+						페이지블럭-자동(
+						<th:block  th:each="num : ${#numbers.sequence(1,pageCount)}">
+							<a th:href="|m_selectAll_paging?page=${num}|"><span>[[${num}]]페이지</span></a>
+						</th:block>
+						)
+				</div>
+				<div th:if="${total_rowCount%5} > 0" th:with="pageCount=${T(java.lang.Math).floor(total_rowCount/5) + 1}">
+						<p>pageCount:[[${pageCount}]]</p>
+						페이지블럭-자동(
+						<th:block  th:each="num : ${#numbers.sequence(1,pageCount)}">
+							<a th:href="|m_selectAll_paging?page=${num}|"><span>[[${num}]]페이지</span></a>
+						</th:block>
+						)
+				</div>
+				
+				<hr>
+						
+				
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Email</th>
+							<th scope="col">registertime</th>
+							<th scope="col">lastLoginTime</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<th:block th:each="vo : ${vos}">
+							<tr>
+								<th scope="row"><a th:href="|m_selectOne?num=${vo.id}|"><span>[[${vo.id}]]</span></a></th>
+								<td><a th:href="|m_selectOne?num=${vo.id}|"><span
+										th:text="${vo.email}"></span></a></td>
+								<td><span th:text="${vo.registerTime}"></span></td>
+								<td><span th:text="${vo.lastLoginTime}"></span></td>
+								<td><a class="deleteOK" th:href="|m_deleteOK?num=${vo.id}|"><span>삭제하기</span></a></td>
+							</tr>
+						</th:block>
+					</tbody>
+					<tfoot>
+					</tfoot>
+				</table>
+				
+			</div>
+		</div>
+	</div>
+</div>
+</html>

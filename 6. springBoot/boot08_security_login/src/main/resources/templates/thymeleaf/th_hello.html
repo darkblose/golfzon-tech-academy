@@ -1,0 +1,37 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<div th:fragment="common_content(title)">
+	<div style="text-align: center;">
+		<h1>[[${title}]]</h1>
+		<h1>[[${info}]]</h1>
+		<div sec:authorize="isAuthenticated()">어떤 권한이건 상관없이 인증이 되었다면 이
+			글이 보입니다.</div>
+		<div sec:authorize="isAnonymous()">로그인하지 않은 사용자에게만 보입니다.</div>
+
+		<!--인증시 사용된 객체의 Username (ID) : 로그인 안한상태에서는 anonymousUser 로 표기됨.-->
+		<b>인증시 사용된 객체의 Username (ID):</b>
+		<div sec:authentication="name"></div>
+
+		<div sec:authorize="isAuthenticated()">
+			<!-- sec:authentication"은 로그인한 사용자만 사용할 수 있습니다.  -->
+			<!-- sec:authorize"와 달리 만약 로그인하지 않은 사용자가 접근할 경우 에러가 발생합니다. -->
+			<b>객체의 권한:</b>
+			<div sec:authentication="principal.authorities"></div>
+	
+			<b>인증시 사용된 객체에 대한 정보 바로확인:</b>
+			<div sec:authentication="principal"></div>
+			<b>인증시 사용된 객체에 대한 정보 컨트롤러에서 받아서 확인:</b>
+			<div th:text="${vo}"></div>
+		</div>
+
+		<!--ROLE_USER 권한을 갖는다면 이 글이 보임-->
+		<h1 sec:authorize="hasRole('ADMIN')">Has admin Role</h1>
+
+		<!--ROLE_ADMIN 권한을 갖는다면 이 글이 보임-->
+		<h1 sec:authorize="hasRole('USER')">Has user Role</h1>
+		
+		
+		<img alt="red_car.png" src="/images/red_car.png">
+	</div>
+</div>
+</html>

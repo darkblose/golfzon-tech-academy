@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+<!-- 	th:fragment : 조각 페이지 정의 -->
+	<nav th:fragment="test_top_menu" class="navbar navbar-expand-lg navbar-light bg-light" >
+	<a class="navbar-brand" href="hello">Hello</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+		data-target="#navbarSupportedContent"
+		aria-controls="navbarSupportedContent" aria-expanded="false"
+		aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			
+			<!-- 로그인하지 않은 사용자에게만 보입니다.		 -->
+			<th:block sec:authorize="isAnonymous()">
+				<li class="nav-item active"><a class="nav-link" href="m_insert">회원가입<span
+					class="sr-only"></span></a></li>
+			</th:block>
+			<th:block sec:authorize="isAuthenticated()">
+				<!-- 관리자에게만 보인다.  -->
+				<!--ROLE_USER 권한을 갖는다면 이 글이 보임-->
+				<th:block sec:authorize="hasRole('ADMIN')">
+					<li class="nav-item"><a class="nav-link" href="m_selectAll">회원목록</a>
+					</li></th:block>
+				<li class="nav-item"><a class="nav-link" href="m_selectOne?id=6">회원정보</a>
+				</li>
+				<th:block sec:authorize="isAuthenticated()">
+		           <li class="nav-item"><a class="nav-link" href="logout">로그아웃</a>
+				</li>
+			</th:block>
+			
+			
+	        </th:block>
+			<th:block sec:authorize="isAnonymous()">
+	            <li class="nav-item"><a class="nav-link" href="login">로그인</a>
+			</li>
+	        </th:block>
+			
+			
+		</ul>
+		<form class="form-inline my-2 my-lg-0" action="m_searchList">
+			<select class="selectpicker" name="searchKey">
+			    <option value="name">NAME</option>
+			    <option value="tel">TEL</option>
+			 </select>
+			 
+			<input class="form-control mr-sm-2" type="search"
+				placeholder="Search" aria-label="Search" name="searchWord" value="ki">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		</form>
+	</div>
+</nav>
+
+</body>
+</html>
+
